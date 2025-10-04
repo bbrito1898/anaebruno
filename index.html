@@ -1,217 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ana & Bruno - O Nosso Casamento</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #f2f2f2;
-      --light-gray: #e0e0e0;
-      --mid-gray: #bbb;
-      --dark-gray: #444;
-      --accent: #777;
-    }
+  <title>Ana & Bruno — Save the Date</title>
+  <meta name="description" content="Contagem decrescente para o grande dia de Ana & Bruno — 21 de agosto de 2026." />
 
-    * {
-      box-sizing: border-box;
-    }
+  <!-- Fontes elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background: var(--bg);
-      color: var(--dark-gray);
-      line-height: 1.6;
-    }
-
-    /* HERO COM IMAGEM DE FUNDO */
-    .hero {
-      position: relative;
-      height: 80vh;
-      background: url('') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-    }
-
-    .hero h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      z-index: 1;
-      margin: 0;
-    }
-
-    header, section, footer {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 3rem 1rem;
-    }
-
-    h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 1rem;
-      color: var(--dark-gray);
-    }
-
-    .countdown {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--accent);
-      margin-top: 1rem;
-    }
-
-    .image-gallery img {
-      width: 100%;
-      height: 250px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      object-fit: cover;
-    }
-
-    .image-gallery img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      object-fit: cover;
-    }
-
-    .mapa iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .rsvp {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .rsvp input, .rsvp textarea {
-      padding: 0.8rem;
-      border: 1px solid var(--mid-gray);
-      border-radius: 5px;
-      background: white;
-    }
-
-    .rsvp button {
-      background: var(--dark-gray);
-      color: white;
-      padding: 0.8rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .rsvp button:hover {
-      background: #222;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #ffffff;
-      border-top: 1px solid var(--light-gray);
-      color: var(--accent);
-      font-size: 0.95rem;
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <main class="hero">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1 class="title">Ana &amp; Bruno</h1>
+      <p class="subtitle">Guardem esta data — 21 de agosto de 2026</p>
 
-  <!-- HERO COM IMAGEM DE FUNDO -->
-  <div class="hero" style="background-image: url('assets/images/quinta.jpg');">
-    <h1>Ana & Bruno</h1>
-  </div>
+      <section class="countdown" id="countdown">
+        <div class="timebox"><span class="value" id="days">0</span><span class="label">Dias</span></div>
+        <div class="timebox"><span class="value" id="hours">0</span><span class="label">Horas</span></div>
+        <div class="timebox"><span class="value" id="minutes">0</span><span class="label">Minutos</span></div>
+        <div class="timebox"><span class="value" id="seconds">0</span><span class="label">Segundos</span></div>
+      </section>
 
-  <header>
-    <p style="text-align: center;">Estamos a casar! 21 de Agosto de 2026</p>
-  </header>
-
-  <section id="contador">
-    <h2>Faltam apenas...</h2>
-    <div class="countdown" id="countdown"></div>
-  </section>
-
-  <section id="historia">
-    <h2>A Nossa História</h2>
-    <p>Conhecemo-nos numa tarde de Outono e desde aí nunca mais parámos de sonhar juntos. O casamento será o início de um novo capítulo cheio de amor, gargalhadas e aventuras.</p>
-
-    <div class="image-gallery">
-      <img src="" alt="Imagem da nossa história">
-      <img src="" alt="Outro momento especial">
+      <p class="footer">Com amor, à espera do nosso “Sim”.</p>
     </div>
-  </section>
+  </main>
 
-  <section id="cerimonia">
-    <h2>Cerimónia</h2>
-    <p>A cerimónia será na Igreja de São Miguel, às 15h, seguida de recepção no Palacio da Igreja Velha.</p>
-
-    <div class="image-gallery">
-      <img src="assets/images/igreja.jpg" alt="Imagem da cerimónia">
-      <img src="assets/images/quinta.jpg" alt="Local da recepção">
-    </div>
-  </section>
-
-  <section class="mapa">
-    <h2>Como Chegar</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..." allowfullscreen></iframe>
-  </section>
-
-  <section id="rsvp">
-    <h2>Confirma Presença</h2>
-    <form class="rsvp">
-      <input type="text" placeholder="O teu nome" required>
-      <input type="email" placeholder="O teu email" required>
-      <textarea placeholder="Mensagem (opcional)"></textarea>
-      <button type="submit">Confirmar Presença</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>Com amor, Ana & Bruno ❤️</p>
-  </footer>
-
-  <script>
-    const countdown = document.getElementById("countdown");
-    const targetDate = new Date("2026-08-21T12:00:00").getTime();
-
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance < 0) {
-        countdown.innerHTML = "Já é o grande dia! 💍";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdown.innerHTML = `${days} dias, ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-  </script>
+  <script src="js/countdown.js"></script>
 </body>
 </html>
