@@ -1,127 +1,115 @@
-:root {
-  --text: #5c5c5c;
-  --accent: #d4a373;
-  --bg: #fdfbf9;
-  --overlay: rgba(255,255,255,0.6);
-  --shadow: rgba(0,0,0,0.05);
+:root{
+  --accent:#c89b7b;     /* areia/pêssego suave que combina com tons de pele e roupa */
+  --white:#fff;
+  --muted:rgba(255,255,255,.9);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html, body {
-  height: 100%;
-  font-family: 'Libre Baskerville', serif;
-  background-color: var(--bg);
-  color: var(--text);
-  overflow: hidden;
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Libre Baskerville',serif;
+  background:#000;                 /* evita flash branco em load */
+  color:var(--white);
+  overflow:hidden;
 }
 
-/* Fundo principal */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-image: url('../assets/fundo.png');
-  background-size: cover;
-  background-position: center;
-  animation: fadeIn 2s ease-in-out forwards;
+/* ===== HERO FULLSCREEN, sem “baço” ===== */
+.hero{
+  position:relative; width:100%; height:100vh; overflow:hidden;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+}
+.hero-image{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  /* sem filtros baços; deixa as cores da foto respirarem */
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: var(--overlay);
-  backdrop-filter: blur(6px);
-  z-index: 0;
+/* Conteúdo acima da foto */
+.content{
+  position:relative; z-index:2; padding:2rem; width:100%; max-width:980px;
+}
+.title{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(3rem,8vw,6rem);
+  color:var(--accent);
+  text-shadow:0 6px 22px rgba(0,0,0,.35);
+  margin-bottom:.35em;
+}
+.subtitle{
+  font-size:clamp(1rem,2.2vw,1.4rem);
+  color:var(--muted);
+  font-style:italic;
+  margin-bottom:1.8rem;
+  text-shadow:0 4px 16px rgba(0,0,0,.35);
 }
 
-/* Conteúdo */
-.container {
-  position: relative;
-  z-index: 1;
-  padding: 2rem;
-  max-width: 800px;
-  animation: slideUp 1.5s ease-out forwards;
+/* ===== COUNTDOWN numa única linha ===== */
+.countdown-wrapper{
+  overflow-x:auto; -webkit-overflow-scrolling:touch;
 }
-
-/* Título */
-.title {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(3rem, 8vw, 5.5rem);
-  color: var(--accent);
-  text-shadow: 0 2px 10px rgba(212,163,115,0.25);
-  margin-bottom: 0.4em;
+.countdown{
+  display:flex; flex-wrap:nowrap; justify-content:center; gap:clamp(.6rem,2vw,1.2rem);
+  white-space:nowrap;
 }
-
-/* Subtítulo */
-.subtitle {
-  font-size: clamp(1rem, 2.3vw, 1.4rem);
-  color: #7b7b7b;
-  margin-bottom: 2rem;
-  font-style: italic;
+.timebox{
+  flex:0 0 auto;
+  min-width:clamp(100px,20vw,150px);
+  padding:clamp(.9rem,2.2vw,1.2rem);
+  border-radius:12px;
+  background:rgba(0,0,0,.35);              /* vidro escuro suave p/ legibilidade */
+  border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(8px);
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  transition:transform .3s ease;
 }
+.timebox:hover{ transform:translateY(-3px); }
 
-/* Contagem */
-.countdown {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(80px, 1fr));
-  gap: 1rem;
-  justify-items: center;
+.value{
+  font-variant-numeric:tabular-nums;
+  font-weight:700;
+  font-size:clamp(2rem,5vw,3.2rem);
+  color:var(--accent);
+  text-shadow:0 4px 16px rgba(0,0,0,.35);
 }
-
-.timebox {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(212,163,115,0.3);
-  border-radius: 12px;
-  box-shadow: 0 4px 16px var(--shadow);
-  padding: 1rem;
-  width: 100%;
-  transition: transform 0.3s ease;
-}
-
-.timebox:hover {
-  transform: translateY(-3px);
-}
-
-.value {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  color: var(--accent);
-  font-weight: 700;
-}
-
-.label {
-  display: block;
-  margin-top: 0.3rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
-  color: #777;
+.label{
+  display:block; margin-top:.35rem; font-size:.8rem;
+  text-transform:uppercase; letter-spacing:.06em; color:var(--muted);
 }
 
 /* Rodapé */
-.footer {
-  margin-top: 2.5rem;
-  color: #8a7a68;
-  font-size: 0.95rem;
-  font-style: italic;
+.footer{
+  margin-top:1.8rem; font-size:.95rem; font-style:italic; color:var(--muted);
+  text-shadow:0 4px 16px rgba(0,0,0,.35);
 }
 
-/* Animações suaves */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(1.02); }
-  to { opacity: 1; transform: scale(1); }
+/* ===== FUMO no fundo apenas ===== */
+.smoke{
+  position:absolute; left:0; right:0; bottom:0;
+  height:28vh; pointer-events:none; z-index:1; /* abaixo do texto */
+  /* leve gradação para “assentar” a página */
+  background:linear-gradient(to top, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 55%);
+}
+.smoke span{
+  position:absolute; bottom:-10vh;
+  width:40vw; height:20vh; max-width:520px; max-height:240px;
+  background:radial-gradient(ellipse at center, rgba(255,255,255,.35), rgba(255,255,255,0) 60%);
+  filter:blur(14px); opacity:.55;
+  animation:drift linear infinite;
+}
+.smoke span:nth-child(1){ left:5%;  animation-duration:24s; animation-delay:0s; }
+.smoke span:nth-child(2){ left:28%; animation-duration:28s; animation-delay:3s; transform:scale(1.1); }
+.smoke span:nth-child(3){ left:52%; animation-duration:26s; animation-delay:6s; transform:scale(0.9); }
+.smoke span:nth-child(4){ left:70%; animation-duration:30s; animation-delay:9s; transform:scale(1.2); }
+.smoke span:nth-child(5){ left:85%; animation-duration:22s; animation-delay:12s; transform:scale(0.8); }
+
+@keyframes drift{
+  0%   { transform:translateY(0)      scale(var(--s,1)); opacity:.55; }
+  50%  { transform:translateY(-8vh)   scale(calc(var(--s,1)*1.05)); opacity:.65; }
+  100% { transform:translateY(-16vh)  scale(var(--s,1)); opacity:.35; }
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 600px) {
-  .countdown {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* ===== Responsivo ===== */
+@media (max-width:600px){
+  body{overflow-y:auto}
+  .timebox{min-width:clamp(96px,28vw,132px)}
 }

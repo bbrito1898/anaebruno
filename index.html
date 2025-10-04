@@ -4,29 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ana & Bruno — Save the Date</title>
-  <meta name="description" content="Contagem decrescente para o grande dia de Ana & Bruno — 21 de agosto de 2026." />
-
-  <!-- Fontes elegantes -->
+  <meta name="description" content="Contagem decrescente para o grande dia de Ana & Bruno — 21 de agosto de 2026 às 12h30." />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <main class="hero">
-    <div class="overlay"></div>
-    <div class="container">
-      <h1 class="title">Ana &amp; Bruno</h1>
-      <p class="subtitle">Guardem esta data — 21 de agosto de 2026</p>
+    <img src="assets/fundo.jpg" alt="Ana e Bruno" class="hero-image">
 
-      <section class="countdown" id="countdown">
-        <div class="timebox"><span class="value" id="days">0</span><span class="label">Dias</span></div>
-        <div class="timebox"><span class="value" id="hours">0</span><span class="label">Horas</span></div>
-        <div class="timebox"><span class="value" id="minutes">0</span><span class="label">Minutos</span></div>
-        <div class="timebox"><span class="value" id="seconds">0</span><span class="label">Segundos</span></div>
-      </section>
+    <div class="content">
+      <h1 class="title">Ana &amp; Bruno</h1>
+      <p class="subtitle">Guardem esta data — 21 de agosto de 2026 às 12h30</p>
+
+      <div class="countdown-wrapper">
+        <div class="countdown" id="countdown" aria-live="polite" aria-atomic="true">
+          <div class="timebox"><span class="value" id="days">0</span><span class="label">Dias</span></div>
+          <div class="timebox"><span class="value" id="hours">0</span><span class="label">Horas</span></div>
+          <div class="timebox"><span class="value" id="minutes">0</span><span class="label">Minutos</span></div>
+          <div class="timebox"><span class="value" id="seconds">0</span><span class="label">Segundos</span></div>
+        </div>
+      </div>
 
       <p class="footer">Com amor, à espera do nosso “Sim”.</p>
+    </div>
+
+    <!-- Fumo apenas no fundo da página -->
+    <div class="smoke" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
     </div>
   </main>
 
