@@ -1,6 +1,6 @@
 (function(){
-  // 21/08/2026 às 12:30 (hora local de quem visita)
-  const target = new Date('2026-08-21T12:30:00');
+  // 21/08/2026 às 12:15 (hora local de quem visita)
+  const target = new Date('2026-08-21T12:15:00');
 
   const daysEl    = document.getElementById('days');
   const hoursEl   = document.getElementById('hours');
@@ -15,7 +15,7 @@
 
     if (diff <= 0){
       daysEl.textContent = hoursEl.textContent = minutesEl.textContent = secondsEl.textContent = '00';
-      document.querySelector('.subtitle').textContent = 'Chegou o grande dia! 💕';
+      document.querySelector('.subtitle').textContent = 'Chegou o grande dia.';
       clearInterval(timer);
       return;
     }
